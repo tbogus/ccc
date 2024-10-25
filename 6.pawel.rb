@@ -105,37 +105,37 @@ n.times do
         next if cy > y
         (0...W+1).each do |dx|
             (0...W+1).each do |dy|
-                #((cx+dx)...x).each do |ox|
-                (cx+dx).step(x, W) do |ox|
-                    pola = [
-                        [0, cx+dx, 0, cy],
-                        [cx+dx, ox, 0, cy+dy],
-                        [cx, cx+dx, cy, cy+dy], # dziura
-                        [0, cx, cy, y],
-                        [cx, ox, cy+dy, y],
-                        [ox, x, 0, y],
-                    ]
-                    pola.select!{|x, xx, y, yy| xx > x && yy > y && x >= 0 && y >= 0 && xx <= X && yy <= Y}
-                    wynik = pola.map{|x, xx, y, yy| ile(xx-x, yy-y) }.sum
-                    wyniki[wynik] = pola
-                end
-                (cy+dy).step(y, W) do |oy|
+                # ((cx+dx)...x).each do |ox|
+                # # (cx+dx).step(x, W) do |ox|
+                #     pola = [
+                #         [0, cx+dx, 0, cy],
+                #         [cx+dx, ox, 0, cy+dy],
+                #         [cx, cx+dx, cy, cy+dy], # dziura
+                #         [0, cx, cy, y],
+                #         [cx, ox, cy+dy, y],
+                #         [ox, x, 0, y],
+                #     ]
+                #     pola.select!{|x, xx, y, yy| xx > x && yy > y && x >= 0 && y >= 0 && xx <= X && yy <= Y}
+                #     wynik = pola.map{|x, xx, y, yy| ile(xx-x, yy-y) }.sum
+                #     wyniki[wynik] = pola
+                # end
+                # # (cy+dy).step(y, W) do |oy|
                 # ((cy+dy)...y).each do |oy|
-                    pola = [
-                        [0, cx+dx, 0, cy],
-                        [cx+dx, x, 0, cy+dy],
-                        [cx, cx+dx, cy, cy+dy], # dziura
-                        [0, cx, cy, oy],
-                        [cx, x, cy+dy, oy],
-                        [0, x, oy, y]
-                    ]
-                    pola.select!{|x, xx, y, yy| xx > x && yy > y && x >= 0 && y >= 0 && xx <= X && yy <= Y}
-                    wynik = pola.map{|x, xx, y, yy| ile(xx-x, yy-y) }.sum
-                    wyniki[wynik] = pola
-                end
+                #     pola = [
+                #         [0, cx+dx, 0, cy],
+                #         [cx+dx, x, 0, cy+dy],
+                #         [cx, cx+dx, cy, cy+dy], # dziura
+                #         [0, cx, cy, oy],
+                #         [cx, x, cy+dy, oy],
+                #         [0, x, oy, y]
+                #     ]
+                #     pola.select!{|x, xx, y, yy| xx > x && yy > y && x >= 0 && y >= 0 && xx <= X && yy <= Y}
+                #     wynik = pola.map{|x, xx, y, yy| ile(xx-x, yy-y) }.sum
+                #     wyniki[wynik] = pola
+                # end
 
-                (cx+dx).step(x, W) do |ox|
-                    (cy+dy).step(y, W) do |oy|
+                ((cx+dx)...x).each do |ox|
+                    ((cy+dy)...y).each do |oy|
                         pola = [
                             [0, cx+dx, 0, cy],
                             [cx+dx, ox, 0, cy+dy],
@@ -148,18 +148,18 @@ n.times do
                         pola.select!{|x, xx, y, yy| xx > x && yy > y && x >= 0 && y >= 0 && xx <= X && yy <= Y}
                         wynik = pola.map{|x, xx, y, yy| ile(xx-x, yy-y) }.sum
                         wyniki[wynik] = pola
-                        pola = [
-                            [0, cx+dx, 0, cy],
-                            [cx+dx, ox, 0, cy+dy],
-                            [cx, cx+dx, cy, cy+dy], # dziura
-                            [0, cx, cy, oy],
-                            [cx, ox, cy+dy, oy],
-                            [0, x, 0, oy],
-                            [ox, x, 0, y],
-                        ]
-                        pola.select!{|x, xx, y, yy| xx > x && yy > y && x >= 0 && y >= 0 && xx <= X && yy <= Y}
-                        wynik = pola.map{|x, xx, y, yy| ile(xx-x, yy-y) }.sum
-                        wyniki[wynik] = pola
+                        # pola = [
+                        #     [0, cx+dx, 0, cy],
+                        #     [cx+dx, ox, 0, cy+dy],
+                        #     [cx, cx+dx, cy, cy+dy], # dziura
+                        #     [0, cx, cy, oy],
+                        #     [cx, ox, cy+dy, oy],
+                        #     [0, x, 0, oy],
+                        #     [ox, x, 0, y],
+                        # ]
+                        # pola.select!{|x, xx, y, yy| xx > x && yy > y && x >= 0 && y >= 0 && xx <= X && yy <= Y}
+                        # wynik = pola.map{|x, xx, y, yy| ile(xx-x, yy-y) }.sum
+                        # wyniki[wynik] = pola
                     end
                 end
                 # (cy+dy).step(y, W) do |oy|
